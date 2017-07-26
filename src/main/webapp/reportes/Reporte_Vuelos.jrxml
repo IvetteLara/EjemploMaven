@@ -31,7 +31,7 @@ and v.fecha between $P{fechaInicial} and $P{fechaFinal}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="103" splitType="Stretch">
 			<staticText>
 				<reportElement x="126" y="16" width="303" height="32" uuid="958c2e41-f49b-439b-8b0b-6e296434c3e6"/>
 				<textElement textAlignment="Center">
@@ -42,6 +42,41 @@ and v.fecha between $P{fechaInicial} and $P{fechaFinal}]]>
 			<textField pattern="dd/MM/yyyy h.mm a">
 				<reportElement x="455" y="59" width="100" height="20" uuid="17781b20-f695-4b56-87cf-baacbce7b3d9"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="41" y="73" width="74" height="20" uuid="7968fd17-c101-4221-b832-002a54dbef9a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha y Hora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="73" width="36" height="20" uuid="02dfebd4-249a-4630-8243-9d5a1df13e57"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desde]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="73" width="36" height="20" uuid="2ef271ea-fc3e-47c2-b909-96ea79948ede"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hasta]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="166" y="73" width="100" height="20" uuid="87e9f7e2-3d7f-423f-a765-2b5e46eed9b2"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fechaInicial}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="329" y="73" width="100" height="20" uuid="ce74adbd-32e3-4f6b-89a8-99c2d56cb07d"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fechaFinal}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
