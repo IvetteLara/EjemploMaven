@@ -3,8 +3,11 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="fechaInicial" class="java.sql.Timestamp"/>
-	<parameter name="fechaFinal" class="java.sql.Timestamp"/>
+	<parameter name="fechaInicial" class="java.util.Date"/>
+	<parameter name="fechaFinal" class="java.util.Date"/>
+	<parameter name="estado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[select v.idvuelo,
 o.aeropuerto as origen,
@@ -15,7 +18,8 @@ a.descripcion as avion
 from avion a, aeropuerto o, aeropuerto d, vuelo v
 where a.idavion = v.idavion and
 o.idaeropuerto=v.idorigen and d.idaeropuerto=v.iddestino
-and v.fecha between $P{fechaInicial} and $P{fechaFinal}]]>
+and v.fecha between $P{fechaInicial} and $P{fechaFinal}
+and $P!{estado}]]>
 	</queryString>
 	<field name="idvuelo" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -48,7 +52,7 @@ and v.fecha between $P{fechaInicial} and $P{fechaFinal}]]>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Fecha y Hora:]]></text>
+				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="126" y="73" width="36" height="20" uuid="02dfebd4-249a-4630-8243-9d5a1df13e57"/>
@@ -78,6 +82,9 @@ and v.fecha between $P{fechaInicial} and $P{fechaFinal}]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fechaFinal}]]></textFieldExpression>
 			</textField>
+			<rectangle>
+				<reportElement x="126" y="49" width="300" height="10" backcolor="#FFFF66" uuid="7f0d5db2-08ba-40e5-8960-d2a11964f716"/>
+			</rectangle>
 		</band>
 	</title>
 	<pageHeader>
