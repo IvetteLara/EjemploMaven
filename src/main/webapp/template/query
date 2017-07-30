@@ -1,0 +1,13 @@
+SELECT 
+v.fecha,
+r.idusuario,
+o.aeropuerto as origen,
+d.aeropuerto as destino,
+r.nboletos,
+r.precio
+FROM reservacion r, vuelo v, aeropuerto o, aeropuerto d 
+WHERE r.idvuelo = v.idvuelo
+AND d.idaeropuerto = v.iddestino
+AND o.idaeropuerto = v.idorigen
+ORDER by v.fecha asc, o.aeropuerto
+;
