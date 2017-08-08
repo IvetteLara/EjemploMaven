@@ -11,10 +11,10 @@
 					<reportElement mode="Opaque" x="21" y="0" width="100" height="20" backcolor="#3366FF" uuid="9cbbb448-6dd5-4548-a528-61250790a666"/>
 					<text><![CDATA[Label]]></text>
 				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="121" y="2" width="425" height="20" backcolor="#33FFFF" uuid="33366527-058b-4b6e-940b-e376ddef5545"/>
-					<text><![CDATA["Field"]]></text>
-				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="121" y="2" width="366" height="18" backcolor="#33CCFF" uuid="47ad8186-f88d-4a30-a1db-5bb15a3bedec"/>
+					<textFieldExpression><![CDATA["Field"]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 	</group>
@@ -23,13 +23,13 @@
 		<groupHeader>
 			<band height="23">
 				<staticText>
-					<reportElement mode="Opaque" x="150" y="0" width="395" height="20" backcolor="#FFCCCC" uuid="f6262830-2945-4f85-a77e-48ba5320831d"/>
-					<text><![CDATA["Field"]]></text>
-				</staticText>
-				<staticText>
 					<reportElement mode="Opaque" x="50" y="0" width="100" height="20" backcolor="#FF3333" uuid="e9b1d486-2cb0-494c-8c96-1c1085dad603"/>
 					<text><![CDATA[Label]]></text>
 				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="150" y="0" width="351" height="20" backcolor="#FFCCCC" uuid="ad0cb00f-088c-400e-a19c-b91364591532"/>
+					<textFieldExpression><![CDATA["Field"]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 	</group>
@@ -38,13 +38,13 @@
 		<groupHeader>
 			<band height="22">
 				<staticText>
-					<reportElement mode="Opaque" x="201" y="0" width="345" height="20" backcolor="#CCFFCC" uuid="21902faa-2d20-4690-9ad5-260d5c98c018"/>
-					<text><![CDATA["Field"]]></text>
-				</staticText>
-				<staticText>
 					<reportElement mode="Opaque" x="100" y="0" width="100" height="20" backcolor="#006600" uuid="5b6b027d-4c23-4cd4-ad3a-f40bad9651cb"/>
 					<text><![CDATA[Label]]></text>
 				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="200" y="2" width="313" height="18" backcolor="#99FF66" uuid="231878ca-83b7-4501-b4ae-3ecf987ac493"/>
+					<textFieldExpression><![CDATA["Field"]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 	</group>
@@ -53,13 +53,13 @@
 		<groupHeader>
 			<band height="22">
 				<staticText>
-					<reportElement mode="Opaque" x="241" y="0" width="300" height="20" backcolor="#FFFFCC" uuid="763cd88c-1c2f-4cfa-b6ce-9813ca45000e"/>
-					<text><![CDATA["Field"]]></text>
-				</staticText>
-				<staticText>
 					<reportElement mode="Opaque" x="141" y="0" width="100" height="20" backcolor="#FF9900" uuid="1a0e4a35-5d64-48e8-91d0-1b6b690f3e53"/>
 					<text><![CDATA[Label]]></text>
 				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="241" y="0" width="289" height="20" backcolor="#FFFFCC" uuid="5858210b-4a0d-4752-b815-d827f84e5519"/>
+					<textFieldExpression><![CDATA["Field"]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 	</group>
@@ -76,7 +76,7 @@
 				<text><![CDATA[Aerolinea Project]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="150" y="42" width="228" height="38" uuid="ea301ac9-a037-4979-a6ea-1cdcdcf7e9bc"/>
+				<reportElement x="100" y="42" width="321" height="38" uuid="ea301ac9-a037-4979-a6ea-1cdcdcf7e9bc"/>
 				<textElement>
 					<font fontName="Adobe Fangsong Std" size="16" isItalic="true"/>
 				</textElement>
@@ -108,10 +108,10 @@
 	</columnHeader>
 	<detail>
 		<band height="22" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="2" width="100" height="20" uuid="70632ce0-55a5-487e-89e0-971c01f2e6bf"/>
-				<text><![CDATA["Field"]]></text>
-			</staticText>
+			<textField>
+				<reportElement x="3" y="2" width="138" height="20" uuid="07ceb42a-510f-4d6d-9a86-679f0c3c4279"/>
+				<textFieldExpression><![CDATA["Field"]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
