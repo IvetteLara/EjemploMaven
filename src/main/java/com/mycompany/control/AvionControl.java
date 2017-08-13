@@ -33,7 +33,8 @@ public class AvionControl implements Serializable {
     }
 
     public List<Avion> getAviones() {
-        return avionFacade.findAll();
+        aviones = avionFacade.findAll();
+        return aviones;
     }
 
     public void setAviones(List<Avion> aviones) {

@@ -16,7 +16,8 @@ WHERE r.idvuelo = v.idvuelo
 AND d.idaeropuerto = v.iddestino
 AND o.idaeropuerto = v.idorigen
 ORDER by v.fecha asc, o.aeropuerto
-;]]>
+;
+]]>
 	</queryString>
 	<field name="fecha" class="java.sql.Timestamp">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -40,10 +41,10 @@ ORDER by v.fecha asc, o.aeropuerto
 					<reportElement mode="Opaque" x="21" y="0" width="100" height="20" backcolor="#3366FF" uuid="9cbbb448-6dd5-4548-a528-61250790a666"/>
 					<text><![CDATA[fecha]]></text>
 				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="121" y="2" width="425" height="20" backcolor="#33FFFF" uuid="33366527-058b-4b6e-940b-e376ddef5545"/>
-					<text><![CDATA["Field"]]></text>
-				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="121" y="2" width="366" height="18" backcolor="#33CCFF" uuid="47ad8186-f88d-4a30-a1db-5bb15a3bedec"/>
+					<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 	</group>
@@ -52,13 +53,13 @@ ORDER by v.fecha asc, o.aeropuerto
 		<groupHeader>
 			<band height="23">
 				<staticText>
-					<reportElement mode="Opaque" x="150" y="0" width="395" height="20" backcolor="#FFCCCC" uuid="f6262830-2945-4f85-a77e-48ba5320831d"/>
-					<text><![CDATA["Field"]]></text>
-				</staticText>
-				<staticText>
 					<reportElement mode="Opaque" x="50" y="0" width="100" height="20" backcolor="#FF3333" uuid="e9b1d486-2cb0-494c-8c96-1c1085dad603"/>
 					<text><![CDATA[origen]]></text>
 				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="150" y="0" width="351" height="20" backcolor="#FFCCCC" uuid="ad0cb00f-088c-400e-a19c-b91364591532"/>
+					<textFieldExpression><![CDATA[$F{origen}]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 	</group>
@@ -75,7 +76,7 @@ ORDER by v.fecha asc, o.aeropuerto
 				<text><![CDATA[Aerolinea Project]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="150" y="42" width="228" height="38" uuid="ea301ac9-a037-4979-a6ea-1cdcdcf7e9bc"/>
+				<reportElement x="100" y="42" width="321" height="38" uuid="ea301ac9-a037-4979-a6ea-1cdcdcf7e9bc"/>
 				<textElement>
 					<font fontName="Adobe Fangsong Std" size="16" isItalic="true"/>
 				</textElement>
@@ -100,29 +101,41 @@ ORDER by v.fecha asc, o.aeropuerto
 				<reportElement x="0" y="20" width="100" height="1" uuid="5b04bfd4-f661-4753-8e1e-e0e45590a442"/>
 			</line>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" backcolor="#CCCCFF" uuid="ab94136e-c2b4-4e4b-bf8a-116460659392"/>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" backcolor="#CCCCFF" uuid="4ffbb302-f8fb-4465-b6d9-d90ecb6c1bd3"/>
 				<text><![CDATA[idusuario]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" backcolor="#CCCCFF" uuid="16c9b388-26f3-46cb-a206-4bbeab234861"/>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" backcolor="#CCCCFF" uuid="2aa7a6ca-33f6-423d-83bc-88e571e16fd0"/>
 				<text><![CDATA[destino]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" backcolor="#CCCCFF" uuid="e64766fb-ff34-4c19-8b74-65579f08a012"/>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" backcolor="#CCCCFF" uuid="7aa3244f-ce25-400f-941d-fb94e1078f66"/>
 				<text><![CDATA[nboletos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" backcolor="#CCCCFF" uuid="2ec4cb68-bd6d-4d69-9f95-9800e85ee373"/>
+				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" backcolor="#CCCCFF" uuid="560e62bb-1d92-475f-aa11-4f1a0922f204"/>
 				<text><![CDATA[precio]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="22" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="2" width="100" height="20" uuid="70632ce0-55a5-487e-89e0-971c01f2e6bf"/>
-				<text><![CDATA["Field"]]></text>
-			</staticText>
+			<textField>
+				<reportElement x="0" y="2" width="138" height="20" uuid="f0632d57-7544-4abe-8e6b-d2fec3c8b5aa"/>
+				<textFieldExpression><![CDATA[$F{idusuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="2" width="138" height="20" uuid="8092e75e-5e1a-4709-a374-cfae013cb3f1"/>
+				<textFieldExpression><![CDATA[$F{destino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="2" width="138" height="20" uuid="29e44286-bdff-4148-b5f2-88b184c30622"/>
+				<textFieldExpression><![CDATA[$F{nboletos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="2" width="138" height="20" uuid="cb9b8a6d-51ce-4fe5-abc6-df2f0506b3cc"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
