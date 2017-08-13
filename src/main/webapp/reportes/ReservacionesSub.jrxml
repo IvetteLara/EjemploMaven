@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="eb549f13-ff34-4902-8c0b-4d5a746de567">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Fecha" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[SELECT 
+v.fecha,
+r.idusuario,
+o.aeropuerto as origen,
+d.aeropuerto as destino,
+r.nboletos,
+r.precio,
+r.nboletos*r.precio as subtotal
+FROM reservacion r, vuelo v, aeropuerto o, aeropuerto d 
+WHERE r.idvuelo = v.idvuelo
+AND d.idaeropuerto = v.iddestino
+AND o.idaeropuerto = v.idorigen
+AND v.fecha = $P{Fecha}
+ORDER by v.fecha asc, o.aeropuerto
+;]]>
+	</queryString>
+	<field name="fecha" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idusuario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="origen" class="java.lang.String"/>
+	<field name="destino" class="java.lang.String"/>
+	<field name="nboletos" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subtotal" class="java.math.BigDecimal"/>
+	<variable name="subtotal_1" class="java.lang.Number" calculation="Sum">
+		<variableExpression><![CDATA[$F{subtotal}]]></variableExpression>
+	</variable>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="92" height="20" uuid="f44db72b-ece8-4417-ab16-f89f0f5b4017"/>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="92" y="0" width="92" height="20" uuid="05d8e778-6f8b-4983-9437-c2f83078a9db"/>
+				<text><![CDATA[idusuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="0" width="92" height="20" uuid="c3ea32f3-4c62-4f30-88a8-577419d39990"/>
+				<text><![CDATA[origen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="92" height="20" uuid="b81af259-b762-4b77-9dc5-6e42c4111896"/>
+				<text><![CDATA[destino]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="368" y="0" width="47" height="20" uuid="c3efe1b4-757c-4be3-b0eb-891ae884e411"/>
+				<text><![CDATA[nboletos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="0" width="58" height="20" uuid="29071bd9-c2d0-400b-8b7c-fb1269b732dc"/>
+				<text><![CDATA[precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="1" width="100" height="20" uuid="d5d2a61d-9d8e-4f10-ab70-ab35566ff604"/>
+				<text><![CDATA[subtotal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="92" height="20" uuid="ffb3c4e9-a1c0-4801-a64a-0863e3b40ea7"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="0" width="92" height="20" uuid="c8b2284f-c167-4289-9a19-2b75e9c91e30"/>
+				<textFieldExpression><![CDATA[$F{idusuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="0" width="92" height="20" uuid="1934dbdd-9cba-4ed9-8e29-b954552ed1e4"/>
+				<textFieldExpression><![CDATA[$F{origen}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="0" width="92" height="20" uuid="2b86747c-5870-4004-bf29-ac91efa77d1b"/>
+				<textFieldExpression><![CDATA[$F{destino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="1" width="47" height="20" uuid="0df0048d-6c00-40a7-bf6c-721b23c7efe8"/>
+				<textFieldExpression><![CDATA[$F{nboletos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="419" y="1" width="57" height="20" uuid="949be1b0-938f-40dd-9a3a-a124c6e6e3e0"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="477" y="1" width="100" height="20" uuid="81571935-4905-430a-92b0-ff2c0814ceb6"/>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="476" y="11" width="100" height="20" uuid="dd820f0e-c572-4c84-a3f2-a16942c61f7b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{subtotal_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="429" y="11" width="48" height="20" uuid="ada126d7-d475-4712-982d-677d271ebf44"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
